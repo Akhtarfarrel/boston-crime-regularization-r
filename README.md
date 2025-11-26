@@ -60,9 +60,9 @@ The exact values will depend slightly on the split, but in this configuration I 
 
 On this train–test split, the **lasso model** gives the **lowest test MSE** (around 41), slightly beating the best stepwise and ridge models, and clearly outperforming the reduced OLS and PCR models. The differences are small and all linear/penalized models are in a similar ballpark, but if I had to pick one model for out-of-sample prediction of `crim` in this setup, **I would choose lasso with cross-validated λ**.
 
-###Why the error stays relatively high
+#### Why the error stays relatively high
 
-Even with lasso and other selected/regularized linear models, the test MSE remains fairly large because crim is a challenging outcome for a mostly linear framework. Several predictor effects are likely nonlinear (curved or threshold-like), so a linear specification can miss important structure unless I add explicit nonlinear terms (e.g., squared terms, splines, interactions). In addition, crim is right-skewed and contains outliers, and because I evaluate performance with MSE, a small number of extreme high-crime observations can disproportionately inflate the overall error even when the model fits most neighborhoods reasonably well.
+Even with lasso and other selected/regularized linear models, the test MSE remains fairly large because `crim` is a challenging outcome for a mostly linear framework. Several predictor effects are likely nonlinear (curved or threshold-like), so a linear specification can miss important structure unless I add explicit nonlinear terms (e.g., squared terms, splines, interactions). In addition, `crim` is right-skewed and contains outliers, and because I evaluate performance with MSE, a small number of extreme high-crime observations can disproportionately inflate the overall error even when the model fits most neighborhoods reasonably well.
 
 
 
